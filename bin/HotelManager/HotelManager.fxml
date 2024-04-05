@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HotelManager.HotelManagerController">
+   <children>
+      <AnchorPane fx:id="reservationManagementPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="reservationTableView" layoutX="25.0" layoutY="55.0" prefHeight="262.0" prefWidth="542.0">
+               <columns>
+                  <TableColumn fx:id="customerNameColumn" prefWidth="63.20001220703125" text="이름" />
+                  <TableColumn fx:id="phoneNumberColumn" prefWidth="157.5999755859375" text="전화번호" />
+                  <TableColumn fx:id="customerIDColumn" prefWidth="95.199951171875" text="ID" />
+                  <TableColumn fx:id="customerPasswordColumn" prefWidth="124.7999267578125" text="PASSWORD" />
+                  <TableColumn fx:id="reservedRoomNumberColumn" prefWidth="99.99997558593748" text="예약한 호실" />
+               </columns>
+            </TableView>
+            <Button layoutX="371.0" layoutY="345.0" mnemonicParsing="false" onAction="#moveFromResrvationPaneToSelectionPane" style="-fx-background-color: #d9ffda;" text="돌아가기" />
+            <TextField fx:id="customerSearchField" layoutX="25.0" layoutY="21.0" prefHeight="22.0" prefWidth="359.0" promptText="이름을 입력하세요" />
+            <Button layoutX="383.0" layoutY="21.0" mnemonicParsing="false" onAction="#searchAction" style="-fx-background-color: #d9ffda;" text="검색" />
+            <Button layoutX="179.0" layoutY="345.0" mnemonicParsing="false" onAction="#quitAction2" style="-fx-background-color: #d9ffda;" text="종료" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="roomManagementPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="availableRoomTableView" layoutX="24.0" layoutY="23.0" prefHeight="318.0" prefWidth="366.0">
+              <columns>
+                <TableColumn fx:id="availableRoomNumberColumn" prefWidth="41.60003662109375" text="호실" />
+                  <TableColumn fx:id="availableRoomTypeColumn" prefWidth="58.4000244140625" text="객실유형" />
+                  <TableColumn fx:id="availableRoomOriginalPriceColumn" prefWidth="63.99993896484375" text="기존 가격" />
+                  <TableColumn fx:id="availableRoomReducedPriceColumn" prefWidth="63.99993896484375" text="할인 가격" />
+                  <TableColumn fx:id="availableRoomReservationPeriodColumn" prefWidth="138.4000244140625" text="예약 가능 기간" />
+              </columns>
+            </TableView>
+            <Button layoutX="24.0" layoutY="355.0" mnemonicParsing="false" onAction="#addAvailableRoomAction" style="-fx-background-color: #d9ffda;" text="사용 가능한 객실 추가" />
+            <Button layoutX="178.0" layoutY="355.0" mnemonicParsing="false" onAction="#deleteReservedRoomAction" style="-fx-background-color: #d9ffda;" text="예약된 객실 삭제" />
+            <Button layoutX="315.0" layoutY="355.0" mnemonicParsing="false" onAction="#moveFromRoomPaneToSelectionPane" style="-fx-background-color: #d9ffda;" text="돌아가기" />
+            <DatePicker fx:id="availableRoomInDatePicker" layoutX="404.0" layoutY="183.0" />
+            <DatePicker fx:id="availableRoomOutDatePicker" layoutX="404.0" layoutY="255.0" />
+            <Text layoutX="411.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="예약 가능 기간 시작일" />
+            <Text layoutX="411.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="예약 가능 기간 종료일" />
+            <Text layoutX="427.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="호실" />
+            <TextField fx:id="availableRoomNumberField" layoutX="468.0" layoutY="30.0" prefHeight="22.0" prefWidth="99.0" />
+            <Text layoutX="426.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="유형" />
+            <TextField fx:id="availableRoomTypeField" layoutX="468.0" layoutY="60.0" prefHeight="22.0" prefWidth="99.0" />
+            <Text layoutX="412.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="기존 가격" />
+            <TextField fx:id="availableRoomOriginalPriceField" layoutX="468.0" layoutY="91.0" prefHeight="22.0" prefWidth="99.0" />
+            <Button layoutX="422.0" layoutY="355.0" mnemonicParsing="false" onAction="#quitAction1" style="-fx-background-color: #d9ffda;" text="종료" />
+            <Text layoutX="412.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="할인 가격" />
+            <TextField fx:id="availableRoomReducedPriceField" layoutX="468.0" layoutY="121.0" prefHeight="22.0" prefWidth="99.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="managementSelectionPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Text layoutX="366.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="호텔 관리">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="300.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="관리를 원하는 항목을 선택하세요">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="409.0" layoutY="311.0" mnemonicParsing="false" onAction="#checkAction" style="-fx-background-color: #a9ffda; -fx-background-radius: 20;" text="Next">
+               <font>
+                  <Font name="Verdana Bold Italic" size="23.0" />
+               </font>
+            </Button>
+            <RadioButton layoutX="300.0" layoutY="242.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="155.0" style="-fx-background-color: #54d69d; -fx-background-radius: 20;" text="객실 관리" userData="roomManagement">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="managementSelection" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="300.0" layoutY="280.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="155.0" style="-fx-background-color: #54d69d; -fx-background-radius: 20;" text="예약 조회" toggleGroup="$managementSelection" userData="reservationManagement">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </RadioButton>
+            <AnchorPane layoutX="4.0" layoutY="-9.0" prefHeight="406.0" prefWidth="226.0" style="-fx-background-color: #d9ffda;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="managerLoginPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Text layoutX="291.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Manager!">
+               <font>
+                  <Font name="Verdana Bold" size="31.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="passwordField" layoutX="414.0" layoutY="273.0" />
+            <TextField fx:id="hotelNameField" layoutX="414.0" layoutY="231.0" />
+            <Text layoutX="281.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Name">
+               <font>
+                  <Font name="Verdana Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="281.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PASSWORD">
+               <font>
+                  <Font name="Verdana Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="368.0" layoutY="311.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="48.0" prefWidth="118.0" style="-fx-background-radius: 20; -fx-background-color: #a9ffda;" text="Login">
+               <font>
+                  <Font name="Verdana Bold Italic" size="23.0" />
+               </font>
+            </Button>
+            <AnchorPane prefHeight="400.0" prefWidth="226.0" style="-fx-background-color: #d9ffda;" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="361.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/asdf.png" />
+               </image></ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

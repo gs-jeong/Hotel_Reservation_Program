@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReservationClient.ReservationClientController">
+   <children>
+      <AnchorPane fx:id="checkReservationPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Button layoutX="511.0" layoutY="140.0" mnemonicParsing="false" onAction="#cancelReservationAction" style="-fx-background-color: #fac9c9;" text="예약취소" />
+            <Button layoutX="511.0" layoutY="215.0" mnemonicParsing="false" onAction="#moveToPreviousPageAction" style="-fx-background-color: #fac9c9;" text="돌아가기" />
+            <Button layoutX="523.0" layoutY="280.0" mnemonicParsing="false" onAction="#quitAction2" style="-fx-background-color: #fac9c9;" text="종료" />
+            <TableView fx:id="reservedRoomTableView" layoutX="32.0" layoutY="26.0" prefHeight="350.0" prefWidth="462.0">
+              <columns>
+                <TableColumn fx:id="reservedHotelNameColumn" prefWidth="64.00006103515625" text="호텔이름" />
+                <TableColumn fx:id="reservedRoomNumberColumn" prefWidth="61.60003662109375" text="호실" />
+                  <TableColumn fx:id="reservedRoomTypeColumn" prefWidth="69.5999755859375" text="객실유형" />
+                  <TableColumn fx:id="reservedRoomOriginalPriceColumn" prefWidth="66.4000244140625" text="기존 가격" />
+                  <TableColumn fx:id="reservedRoomReducedPriceColumn" prefWidth="73.60003662109375" text="할인 가격" />
+                  <TableColumn fx:id="reservedRoomReservationPeriodColumn" prefWidth="128.79998779296875" text="예약 가능 기간" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reservationPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="availableRoomTableView" layoutX="27.0" layoutY="60.0" prefHeight="314.0" prefWidth="461.0">
+               <columns>
+                  <TableColumn fx:id="availableHotelNameColumn" prefWidth="68.00006103515625" text="호텔이름" />
+                  <TableColumn fx:id="availableRoomNumberColumn" prefWidth="64.0" text="호실" />
+                  <TableColumn fx:id="availableRoomTypeColumn" prefWidth="70.39996337890625" text="객실유형" />
+                  <TableColumn fx:id="availableRoomOriginalPriceColumn" prefWidth="65.60003662109375" text="기존 가격" />
+                  <TableColumn fx:id="availableRoomReducedPriceColumn" prefWidth="73.5999755859375" text="할인 가격" />
+                  <TableColumn fx:id="availableRoomReservationPeriodColumn" prefWidth="118.39996337890625" text="예약 가능 기간" />
+               </columns>
+            </TableView>
+            <Button layoutX="505.0" layoutY="153.0" mnemonicParsing="false" onAction="#reserveAvailableRoomAction" style="-fx-background-color: #fac9c9;" text="예약하기" />
+            <Button layoutX="505.0" layoutY="240.0" mnemonicParsing="false" onAction="#checkReservationAction" style="-fx-background-color: #fac9c9;" text="예약조회" />
+            <TextField fx:id="searchField" layoutX="27.0" layoutY="28.0" prefHeight="22.0" prefWidth="412.0" promptText="호텔 이름을 입력하세요" />
+            <Button layoutX="439.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="22.0" prefWidth="49.0" style="-fx-background-color: #fac9c9;" text="검색" />
+            <Button layoutX="517.0" layoutY="317.0" mnemonicParsing="false" onAction="#quitAction1" style="-fx-background-color: #fac9c9;" text="종료" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loginPane" style="-fx-background-color: white;">
+         <children>
+            <Text layoutX="292.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Customer!">
+               <font>
+                  <Font name="Verdana Bold Italic" size="31.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#008277" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <PasswordField fx:id="passwordField" layoutX="360.0" layoutY="291.0" prefHeight="22.0" prefWidth="215.0" />
+            <TextField fx:id="IDField" layoutX="360.0" layoutY="251.0" prefHeight="22.0" prefWidth="215.0" />
+            <Text layoutX="233.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PASSWORD">
+               <font>
+                  <Font name="Verdana Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="397.0" layoutY="332.0" mnemonicParsing="false" onAction="#loginAction" style="-fx-background-color: #ffc9c9;" text="Login">
+               <font>
+                  <Font name="Verdana Bold Italic" size="18.0" />
+               </font>
+            </Button>
+            <Text layoutX="325.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+               <font>
+                  <Font name="Verdana Bold Italic" size="19.0" />
+               </font>
+            </Text>
+            <VBox prefHeight="400.0" prefWidth="224.0" style="-fx-background-color: #ffc9c9;" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="360.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/zsdfasdfa.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
